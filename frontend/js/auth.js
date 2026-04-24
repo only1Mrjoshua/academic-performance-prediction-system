@@ -1,6 +1,12 @@
 // Helper function to get API base URL
 function getApiBase() {
-    return 'http://localhost:8000';  // Backend on port 8000
+    const isLocalhost =
+        window.location.hostname === 'localhost' ||
+        window.location.hostname === '127.0.0.1';
+
+    return isLocalhost
+        ? 'http://localhost:8000'
+        : 'https://academic-performance-prediction-system.onrender.com';
 }
 
 // Get auth state from localStorage
