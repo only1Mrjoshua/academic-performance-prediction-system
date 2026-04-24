@@ -1,10 +1,21 @@
+// Helper function to check environment
+function isLocalhostEnvironment() {
+    return (
+        window.location.hostname === 'localhost' ||
+        window.location.hostname === '127.0.0.1'
+    );
+}
+
+// Helper function to get frontend page URL
+function getFrontendPath(page) {
+    return isLocalhostEnvironment()
+        ? `/frontend/${page}`
+        : `/${page}`;
+}
+
 // Helper function to get API base URL
 function getApiBase() {
-    const isLocalhost =
-        window.location.hostname === 'localhost' ||
-        window.location.hostname === '127.0.0.1';
-
-    return isLocalhost
+    return isLocalhostEnvironment()
         ? 'http://localhost:8000'
         : 'https://academic-performance-prediction-system.onrender.com';
 }
@@ -40,12 +51,12 @@ function hasRole(requiredRole) {
 // Redirect to login if not authenticated
 function requireAuth(requiredRole = 'any') {
     if (!isAuthenticated()) {
-        window.location.href = '/frontend/login.html';
+        window.location.href = getFrontendPath('login.html');
         return false;
     }
 
     if (!hasRole(requiredRole)) {
-        window.location.href = '/frontend/unauthorized.html';
+        window.location.href = getFrontendPath('unauthorized.html');
         return false;
     }
 
@@ -123,12 +134,12 @@ async function handleLogin(event) {
 
         showToast(`Welcome back, ${data.username}!`, 'success');
 
-        // Redirect based on role - to frontend pages on port 5500
+        // Redirect based on role
         setTimeout(() => {
             if (data.role === 'admin') {
-                window.location.href = '/frontend/admin.html';
+                window.location.href = getFrontendPath('admin.html');
             } else {
-                window.location.href = '/frontend/lecturer.html';
+                window.location.href = getFrontendPath('lecturer.html');
             }
         }, 1000);
 
@@ -158,7 +169,7 @@ function logout() {
     }
 
     setTimeout(() => {
-        window.location.href = '/frontend/login.html';
+        window.location.href = getFrontendPath('login.html');
     }, 500);
 }
 
@@ -211,7 +222,7 @@ async function apiCall(endpoint, method = 'GET', data = null) {
             localStorage.removeItem('authToken');
             localStorage.removeItem('userRole');
             localStorage.removeItem('username');
-            window.location.href = '/frontend/login.html?session=expired';
+            window.location.href = `${getFrontendPath('login.html')}?session=expired`;
             throw new Error('Session expired. Please login again.');
         }
 
@@ -313,7 +324,7 @@ function updateNavigation() {
     } else {
         navRight.innerHTML = `
             <a 
-                href="/frontend/login.html"
+                href="${getFrontendPath('login.html')}"
                 class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-all"
             >
                 <i data-lucide="log-in" class="w-5 h-5"></i>
