@@ -10,13 +10,43 @@
       rel="stylesheet"
     />
 
+    <!-- Apple Touch Icon (iPhone, iPad) -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/apple-touch-icon.png"
+    />
+
+    <!-- Standard Favicons -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images/favicon-16x16.png"
+    />
+
+    <!-- Fallback ICO (important for older browsers) -->
+    <link rel="icon" href="images/favicon.ico" />
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="images/site.webmanifest" />
+
+    <!-- Optional: Theme color for mobile browsers -->
+    <meta name="theme-color" content="#13ec5b" />
+
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
-              primary: "#0f766e",
-              "primary-dark": "#115e59",
+              primary: "#135bec",
+              "primary-dark": "#0f4fd1",
               "background-light": "#f8fafc",
               "surface-soft": "#eef6f5",
               "text-muted": "#64748b",
@@ -71,7 +101,7 @@
           <div class="flex flex-col sm:flex-row gap-4">
             <a
               href="dashboard.html"
-              class="inline-flex items-center justify-center rounded-2xl bg-primary px-6 py-4 text-white font-semibold shadow-lg shadow-teal-100 hover:bg-primary-dark transition-all duration-300"
+              class="inline-flex items-center justify-center rounded-2xl bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-blue-100"
             >
               Go to Dashboard
             </a>
