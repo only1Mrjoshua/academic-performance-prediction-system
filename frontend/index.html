@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Academic Performance Prediction System</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Apple Touch Icon (iPhone, iPad) -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/apple-touch-icon.png"
+    />
+
+    <!-- Standard Favicons -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images/favicon-16x16.png"
+    />
+
+    <!-- Fallback ICO (important for older browsers) -->
+    <link rel="icon" href="images/favicon.ico" />
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="images/site.webmanifest" />
+
+    <!-- Optional: Theme color for mobile browsers -->
+    <meta name="theme-color" content="#13ec5b" />
+
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#135bec",
+              "primary-dark": "#0f4fd1",
+              accent: "#0f766e",
+              "background-light": "#f8fafc",
+              "background-dark": "#0f172a",
+              "text-muted": "#64748b",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            boxShadow: {
+              soft: "0 10px 30px rgba(15, 23, 42, 0.06)",
+              premium: "0 24px 80px rgba(15, 23, 42, 0.14)",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      body {
+        overflow-x: hidden;
+      }
+
+      .glass-nav {
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+      }
+    </style>
+  </head>
+
+  <body
+    class="min-h-screen bg-background-light font-display text-slate-900 relative overflow-x-hidden"
+  >
+    <div
+      class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(19,91,236,0.16),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(15,118,110,0.13),transparent_30%),linear-gradient(to_bottom,#f8fafc,#f8fafc)]"
+    ></div>
+
+    <!-- Navigation -->
+    <nav
+      class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-white/70"
+    >
+      <div
+        class="max-w-[1280px] mx-auto px-6 h-20 flex items-center justify-between"
+      >
+        <a href="index.html" class="flex items-center gap-3">
+          <img
+            src="images/apps-logo-white.png"
+            alt="Academic Performance Prediction System Logo"
+            class="h-12 w-auto object-contain"
+          />
+        </a>
+
+        <div class="hidden md:flex items-center gap-3">
+          <a
+            href="login.html"
+            class="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white/80 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-white transition-all"
+          >
+            Sign In
+          </a>
+
+          <a
+            href="dashboard.html"
+            class="inline-flex items-center justify-center rounded-2xl bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-blue-100 hover:bg-primary-dark transition-all"
+          >
+            Open Dashboard
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main -->
+    <main class="pt-28 md:pt-32 pb-20 px-6">
+      <div class="max-w-[1280px] mx-auto">
+        <!-- Hero -->
+        <section class="grid lg:grid-cols-[1.15fr_0.85fr] gap-10 items-center">
+          <div class="max-w-3xl">
+            <div
+              class="inline-flex items-center gap-3 rounded-full border border-blue-100 bg-white/80 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-primary shadow-soft mb-7"
+            >
+              <span class="relative flex h-2.5 w-2.5">
+                <span
+                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-70"
+                ></span>
+                <span
+                  class="relative inline-flex h-2.5 w-2.5 rounded-full bg-primary"
+                ></span>
+              </span>
+              Academic Performance Prediction System
+            </div>
+
+            <h1
+              class="text-5xl md:text-6xl lg:text-7xl font-black tracking-[-0.04em] leading-[1.02] text-slate-950"
+            >
+              Predict student performance
+              <span class="text-primary">before results are released.</span>
+            </h1>
+
+            <p
+              class="mt-7 text-lg md:text-xl leading-8 text-text-muted max-w-2xl"
+            >
+              Academic Performance Prediction System helps lecturers and
+              administrators analyze student records, predict academic outcomes,
+              identify at-risk students, and make smarter academic decisions
+              early.
+            </p>
+
+            <div class="mt-9 flex flex-col sm:flex-row gap-4">
+              <a
+                href="login.html"
+                class="inline-flex items-center justify-center rounded-2xl bg-primary px-6 py-4 text-white font-semibold shadow-lg shadow-blue-100 hover:bg-primary-dark transition-all"
+              >
+                Access System
+              </a>
+
+              <a
+                href="dashboard.html"
+                class="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-6 py-4 text-slate-800 font-semibold hover:bg-slate-50 transition-all"
+              >
+                View Predictions
+              </a>
+            </div>
+
+            <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl">
+              <div
+                class="rounded-2xl border border-white/70 bg-white/80 p-4 shadow-soft"
+              >
+                <p class="text-2xl font-black tracking-tight text-slate-950">
+                  Early Risk
+                </p>
+                <p class="mt-1 text-sm text-text-muted">
+                  Identify weak students before failure
+                </p>
+              </div>
+
+              <div
+                class="rounded-2xl border border-white/70 bg-white/80 p-4 shadow-soft"
+              >
+                <p class="text-2xl font-black tracking-tight text-slate-950">
+                  Smart Analysis
+                </p>
+                <p class="mt-1 text-sm text-text-muted">
+                  Convert student scores into insights
+                </p>
+              </div>
+
+              <div
+                class="rounded-2xl border border-white/70 bg-white/80 p-4 shadow-soft"
+              >
+                <p class="text-2xl font-black tracking-tight text-slate-950">
+                  Better Decisions
+                </p>
+                <p class="mt-1 text-sm text-text-muted">
+                  Support academic intervention early
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Card -->
+          <div class="relative">
+            <div
+              class="absolute -top-8 -right-6 w-40 h-40 rounded-full bg-blue-200/40 blur-3xl"
+            ></div>
+            <div
+              class="absolute -bottom-8 -left-4 w-40 h-40 rounded-full bg-teal-200/40 blur-3xl"
+            ></div>
+
+            <div
+              class="relative rounded-[32px] border border-white/70 bg-white/80 p-5 md:p-6 shadow-premium backdrop-blur-sm"
+            >
+              <div
+                class="rounded-[28px] bg-slate-950 text-white p-6 md:p-7 overflow-hidden relative"
+              >
+                <div
+                  class="absolute top-0 right-0 w-40 h-40 bg-blue-500/20 blur-3xl rounded-full"
+                ></div>
+
+                <div class="relative">
+                  <div class="flex items-center justify-between mb-8">
+                    <img
+                      src="images/apps-logo-dark.png"
+                      alt="APPS Logo"
+                      class="h-12 w-auto object-contain"
+                    />
+
+                    <div
+                      class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 text-xs font-semibold text-emerald-300"
+                    >
+                      <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                      Active
+                    </div>
+                  </div>
+
+                  <div class="mb-8">
+                    <p
+                      class="text-[11px] uppercase tracking-[0.22em] text-white/50"
+                    >
+                      Prediction Overview
+                    </p>
+                    <h3 class="text-2xl font-bold mt-2">
+                      Academic Risk Intelligence
+                    </h3>
+                  </div>
+
+                  <div class="grid sm:grid-cols-2 gap-4 mb-5">
+                    <div
+                      class="rounded-2xl border border-white/10 bg-white/5 p-4"
+                    >
+                      <p class="text-sm text-white/60">Students analyzed</p>
+                      <p class="mt-2 text-3xl font-black">2,480</p>
+                      <p class="mt-2 text-xs text-emerald-300">
+                        Performance records processed
+                      </p>
+                    </div>
+
+                    <div
+                      class="rounded-2xl border border-white/10 bg-white/5 p-4"
+                    >
+                      <p class="text-sm text-white/60">At-risk students</p>
+                      <p class="mt-2 text-3xl font-black">184</p>
+                      <p class="mt-2 text-xs text-amber-300">
+                        Need academic support
+                      </p>
+                    </div>
+                  </div>
+
+                  <div
+                    class="rounded-2xl border border-white/10 bg-white/5 p-4 mb-5"
+                  >
+                    <div class="flex items-center justify-between mb-3">
+                      <p class="text-sm text-white/70">
+                        Department Performance
+                      </p>
+                      <p class="text-xs text-white/50">Updated now</p>
+                    </div>
+
+                    <div class="space-y-3">
+                      <div>
+                        <div
+                          class="flex items-center justify-between text-sm mb-1.5"
+                        >
+                          <span class="text-white/70">Computer Science</span>
+                          <span class="text-white font-semibold">91%</span>
+                        </div>
+                        <div
+                          class="h-2 rounded-full bg-white/10 overflow-hidden"
+                        >
+                          <div
+                            class="h-full w-[91%] bg-blue-400 rounded-full"
+                          ></div>
+                        </div>
+                      </div>
+
+                      <div>
+                        <div
+                          class="flex items-center justify-between text-sm mb-1.5"
+                        >
+                          <span class="text-white/70">Engineering</span>
+                          <span class="text-white font-semibold">84%</span>
+                        </div>
+                        <div
+                          class="h-2 rounded-full bg-white/10 overflow-hidden"
+                        >
+                          <div
+                            class="h-full w-[84%] bg-teal-400 rounded-full"
+                          ></div>
+                        </div>
+                      </div>
+
+                      <div>
+                        <div
+                          class="flex items-center justify-between text-sm mb-1.5"
+                        >
+                          <span class="text-white/70">Management</span>
+                          <span class="text-white font-semibold">76%</span>
+                        </div>
+                        <div
+                          class="h-2 rounded-full bg-white/10 overflow-hidden"
+                        >
+                          <div
+                            class="h-full w-[76%] bg-amber-400 rounded-full"
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="grid grid-cols-3 gap-3">
+                    <div
+                      class="rounded-2xl bg-white/5 p-4 border border-white/10"
+                    >
+                      <p class="text-xs text-white/50">Accuracy</p>
+                      <p class="mt-2 text-xl font-bold">94.2%</p>
+                    </div>
+
+                    <div
+                      class="rounded-2xl bg-white/5 p-4 border border-white/10"
+                    >
+                      <p class="text-xs text-white/50">Lecturers</p>
+                      <p class="mt-2 text-xl font-bold">126</p>
+                    </div>
+
+                    <div
+                      class="rounded-2xl bg-white/5 p-4 border border-white/10"
+                    >
+                      <p class="text-xs text-white/50">Alerts</p>
+                      <p class="mt-2 text-xl font-bold">37</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="absolute -bottom-6 -left-4 sm:left-auto sm:-right-5 rounded-2xl border border-slate-200 bg-white p-4 shadow-premium w-[220px]"
+              >
+                <p class="text-xs uppercase tracking-[0.14em] text-slate-400">
+                  Intervention Status
+                </p>
+                <p
+                  class="mt-2 text-2xl font-black tracking-tight text-slate-950"
+                >
+                  68%
+                </p>
+                <p class="mt-1 text-sm text-text-muted">
+                  of high-risk students flagged for review
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Access Cards -->
+        <section class="mt-24">
+          <div class="max-w-2xl mb-8">
+            <p
+              class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3"
+            >
+              System Access
+            </p>
+
+            <h2
+              class="text-3xl md:text-4xl font-black tracking-tight text-slate-950"
+            >
+              One academic system, focused workspaces.
+            </h2>
+
+            <p class="mt-3 text-lg text-text-muted">
+              APPS provides separate access points for administrators,
+              lecturers, and academic analytics.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div
+              class="group rounded-[28px] border border-slate-200/80 bg-white/90 p-7 shadow-soft hover:shadow-premium hover:-translate-y-1 transition-all duration-300"
+            >
+              <div
+                class="w-14 h-14 rounded-2xl bg-blue-50 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all"
+              >
+                <span class="text-2xl font-black">A</span>
+              </div>
+
+              <h3 class="text-2xl font-bold tracking-tight text-slate-950 mb-3">
+                Admin Portal
+              </h3>
+
+              <p class="text-text-muted leading-7 mb-7">
+                Manage students, courses, assessment records, user accounts, and
+                prediction data from one central administrative workspace.
+              </p>
+
+              <a
+                href="admin.html"
+                class="inline-flex items-center justify-center rounded-2xl bg-slate-950 px-5 py-3.5 text-white font-semibold w-full group-hover:bg-primary transition-all"
+              >
+                Access Admin Portal
+              </a>
+            </div>
+
+            <div
+              class="group rounded-[28px] border border-slate-200/80 bg-white/90 p-7 shadow-soft hover:shadow-premium hover:-translate-y-1 transition-all duration-300"
+            >
+              <div
+                class="w-14 h-14 rounded-2xl bg-teal-50 text-accent flex items-center justify-center mb-6 group-hover:bg-accent group-hover:text-white transition-all"
+              >
+                <span class="text-2xl font-black">L</span>
+              </div>
+
+              <h3 class="text-2xl font-bold tracking-tight text-slate-950 mb-3">
+                Lecturer Workspace
+              </h3>
+
+              <p class="text-text-muted leading-7 mb-7">
+                Upload assessment scores, review student performance, and
+                identify students who may need academic support.
+              </p>
+
+              <a
+                href="lecturer.html"
+                class="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-5 py-3.5 text-slate-800 font-semibold w-full group-hover:bg-accent group-hover:text-white group-hover:border-accent transition-all"
+              >
+                Access Lecturer Workspace
+              </a>
+            </div>
+
+            <div
+              class="group rounded-[28px] border border-slate-200/80 bg-white/90 p-7 shadow-soft hover:shadow-premium hover:-translate-y-1 transition-all duration-300"
+            >
+              <div
+                class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center mb-6 group-hover:bg-amber-500 group-hover:text-white transition-all"
+              >
+                <span class="text-2xl font-black">P</span>
+              </div>
+
+              <h3 class="text-2xl font-bold tracking-tight text-slate-950 mb-3">
+                Prediction Dashboard
+              </h3>
+
+              <p class="text-text-muted leading-7 mb-7">
+                View academic trends, prediction results, risk levels, and
+                performance summaries in a clean dashboard.
+              </p>
+
+              <a
+                href="dashboard.html"
+                class="inline-flex items-center justify-center rounded-2xl bg-slate-100 px-5 py-3.5 text-slate-800 font-semibold w-full group-hover:bg-amber-500 group-hover:text-white transition-all"
+              >
+                Open Dashboard
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Trust Strip -->
+        <section class="mt-16">
+          <div
+            class="rounded-[28px] border border-slate-200 bg-white/80 p-6 md:p-7 shadow-soft"
+          >
+            <div
+              class="grid grid-cols-1 md:grid-cols-4 gap-6 items-start md:items-center"
+            >
+              <div>
+                <p
+                  class="text-xs uppercase tracking-[0.2em] text-slate-400 font-bold"
+                >
+                  Why APPS matters
+                </p>
+                <h3
+                  class="mt-2 text-xl font-bold tracking-tight text-slate-950"
+                >
+                  Built for better academic decisions
+                </h3>
+              </div>
+
+              <div>
+                <p class="text-sm font-semibold text-slate-950">
+                  Performance Prediction
+                </p>
+                <p class="mt-1 text-sm text-text-muted">
+                  Forecast student academic outcomes
+                </p>
+              </div>
+
+              <div>
+                <p class="text-sm font-semibold text-slate-950">
+                  Risk Detection
+                </p>
+                <p class="mt-1 text-sm text-text-muted">
+                  Identify students likely to perform poorly
+                </p>
+              </div>
+
+              <div>
+                <p class="text-sm font-semibold text-slate-950">
+                  Academic Intervention
+                </p>
+                <p class="mt-1 text-sm text-text-muted">
+                  Support students before failure happens
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200/80 bg-white/70 backdrop-blur-sm">
+      <div class="max-w-[1280px] mx-auto px-6 py-5">
+        <div
+          class="flex flex-col sm:flex-row items-center justify-between gap-3 text-sm"
+        >
+          <div class="flex items-center gap-3">
+            <img
+              src="images/apps-logo-white.png"
+              alt="Academic Performance Prediction System Logo"
+              class="h-10 w-auto object-contain"
+            />
+          </div>
+
+          <p class="text-slate-400 text-center sm:text-right">
+            © 2026 Academic Performance Prediction System. Designed for smarter
+            academic decisions.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const token = localStorage.getItem("authToken");
+        const role = localStorage.getItem("userRole");
+        const desktopNav = document.querySelector(
+          ".hidden.md\\:flex.items-center.gap-3",
+        );
+
+        if (desktopNav && token) {
+          desktopNav.innerHTML = `
+          <div class="hidden lg:flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-3 py-2 text-xs font-semibold text-slate-600">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            ${role === "admin" ? "Admin Session" : "Lecturer Session"}
+          </div>
+
+          <a
+            href="${role === "admin" ? "admin.html" : "lecturer.html"}"
+            class="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white/80 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-white transition-all"
+          >
+            Open Workspace
+          </a>
+
+          <button
+            onclick="logout()"
+            class="inline-flex items-center justify-center rounded-2xl bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-blue-100 hover:bg-primary-dark transition-all"
+          >
+            Logout
+          </button>
+        `;
+        }
+      });
+    </script>
+  </body>
+</html>

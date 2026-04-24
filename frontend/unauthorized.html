@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Unauthorized – Academic Analytics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0f766e",
+              "primary-dark": "#115e59",
+              "background-light": "#f8fafc",
+              "surface-soft": "#eef6f5",
+              "text-muted": "#64748b",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            boxShadow: {
+              soft: "0 20px 60px rgba(15, 23, 42, 0.12)",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body
+    class="min-h-screen bg-background-light font-display relative overflow-hidden"
+  >
+    <!-- Background decoration -->
+    <div
+      class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(15,118,110,0.14),_transparent_28%),radial-gradient(circle_at_bottom_right,_rgba(239,68,68,0.12),_transparent_24%)]"
+    ></div>
+
+    <div class="relative min-h-screen flex items-center justify-center p-6">
+      <div
+        class="max-w-5xl w-full grid lg:grid-cols-2 bg-white rounded-[32px] shadow-soft overflow-hidden border border-slate-200"
+      >
+        <!-- Left content -->
+        <div class="p-8 sm:p-10 lg:p-14 flex flex-col justify-center">
+          <div
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-50 text-red-600 text-sm font-semibold w-fit mb-6 border border-red-100"
+          >
+            <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+            Restricted Access
+          </div>
+
+          <h1
+            class="text-4xl sm:text-5xl font-black tracking-tight text-slate-900 leading-tight mb-4"
+          >
+            Access denied to this page
+          </h1>
+
+          <p
+            class="text-base sm:text-lg text-text-muted leading-8 max-w-xl mb-8"
+          >
+            Your current account does not have the required permission to view
+            this area of the Academic Analytics platform. You can return to your
+            dashboard or sign in with a different account.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              href="dashboard.html"
+              class="inline-flex items-center justify-center rounded-2xl bg-primary px-6 py-4 text-white font-semibold shadow-lg shadow-teal-100 hover:bg-primary-dark transition-all duration-300"
+            >
+              Go to Dashboard
+            </a>
+
+            <a
+              href="login.html"
+              class="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-slate-50 px-6 py-4 text-slate-800 font-semibold hover:bg-slate-100 transition-all duration-300"
+            >
+              Switch Account
+            </a>
+          </div>
+
+          <div
+            class="mt-8 rounded-2xl bg-surface-soft border border-teal-100 px-5 py-4"
+          >
+            <p class="text-sm text-slate-700 leading-6">
+              If you believe this is an error, please contact the system
+              administrator and request the correct access role for your
+              account.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right visual panel -->
+        <div
+          class="relative bg-gradient-to-br from-slate-950 via-slate-900 to-teal-950 p-8 sm:p-10 lg:p-14 flex items-center justify-center min-h-[340px]"
+        >
+          <div
+            class="absolute top-8 right-8 w-24 h-24 rounded-full bg-white/10 blur-2xl"
+          ></div>
+          <div
+            class="absolute bottom-10 left-10 w-32 h-32 rounded-full bg-red-400/10 blur-3xl"
+          ></div>
+
+          <div class="relative w-full max-w-sm">
+            <div
+              class="rounded-[28px] border border-white/10 bg-white/5 backdrop-blur-xl p-8 text-white shadow-2xl"
+            >
+              <div class="flex items-center justify-between mb-8">
+                <div>
+                  <p class="text-sm uppercase tracking-[0.2em] text-white/60">
+                    Security
+                  </p>
+                  <h2 class="text-2xl font-extrabold mt-2">403 Forbidden</h2>
+                </div>
+                <div
+                  class="w-14 h-14 rounded-2xl bg-red-500/20 border border-red-400/20 flex items-center justify-center"
+                >
+                  <div
+                    class="w-7 h-7 rounded-full border-[5px] border-red-400 relative"
+                  >
+                    <div
+                      class="absolute top-1/2 left-1/2 w-8 h-1 bg-red-400 rounded-full -translate-x-1/2 -translate-y-1/2 rotate-[-25deg]"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="space-y-4">
+                <div class="rounded-2xl bg-white/5 border border-white/10 p-4">
+                  <p
+                    class="text-white/60 text-xs uppercase tracking-widest mb-2"
+                  >
+                    Status
+                  </p>
+                  <p class="font-semibold text-lg">Permission required</p>
+                </div>
+
+                <div class="rounded-2xl bg-white/5 border border-white/10 p-4">
+                  <p
+                    class="text-white/60 text-xs uppercase tracking-widest mb-2"
+                  >
+                    Suggested action
+                  </p>
+                  <p class="font-medium text-white/90">
+                    Return safely or log in with an authorized account
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-8 flex items-center gap-3 text-sm text-white/70">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-400"></span>
+                Protected route active
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
